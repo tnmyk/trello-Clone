@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prello</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <%-include('./partials/header') %> 
+    <form action="/signin" method="post" class="sign-in">
+        <h1 class="form-heading">Sign In To Your Boards.</h1>
+        <input type="text" name="email" id="email" placeholder="Email" required>
+        <input type="password" name="password" id="password" class="password"  placeholder="Password" minlength="6" required>
+        <button id='signBtn'>Sign in</button>
+        <a href="/sign-up" class="createorsign">Create a new account</a>
+    </form>
+</body>
+<div class="signerror"><%=err%>
+</div>
+<script>
+    document.querySelector('.profile-pic').style.display = 'none';
+    document.querySelector('nav').style.marginRight = '5vw';
+    document.querySelector('nav').style.width = '13%';
+</script>
+</html>

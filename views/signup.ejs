@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <%-include('./partials/header') %> 
+    <form action="/signup" method="post" class="sign-in sign-up">
+        <h1 class="form-heading">Create An Account.</h1>
+        <input type="text" name="name" id="name" placeholder="Name" required>
+        <input type="text" name="email" id="email" placeholder="Email" required>
+        <input type="password" name="password" id="password" class="password" placeholder="Password" minlength="6" required>
+        <input type="password" name="cpassword" id="cpassword" class="password"  placeholder="Confirm Password" minlength="6" required>
+        <button id='signBtn'>Sign up</button>
+        <a href="/" class="createorsign">Sign into existing account.</a>
+    </form>
+</body>
+<div class="signerror"> <%=err %> 
+</div>
+<script>
+    document.querySelector('.profile-pic').style.display = 'none';
+    document.querySelector('nav').style.marginRight = '5vw';
+    document.querySelector('nav').style.width = '13%';
+</script>
+
+</html>
