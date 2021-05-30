@@ -5,7 +5,7 @@ document.addEventListener("click", (e) => {
     document.querySelector(".profile-menu").classList.remove("unhide-profile");
   }
 });
-
+var listInnerHTML;
 document.querySelector(".createCardBtn").addEventListener("click", () => {
   const li = document.createElement("li");
   li.className = "card";
@@ -19,6 +19,7 @@ document.querySelector(".createCardBtn").addEventListener("click", () => {
                 </div>`;
   
   document.querySelector(".list-container").appendChild(li);
+  listInnerHTML = document.querySelector(".list-container").innerHTML;
   li.children[0].focus();
   const x =
     document.querySelectorAll(".incard")[
@@ -43,6 +44,7 @@ function itemAdder(parent){
   parent.querySelector(".incard").innerHTML += `<li>${
     parent.querySelector("#input-item").value
   } <button class='liDeleteBtn'></button></li>`;
+  listInnerHTML = document.querySelector(".list-container").innerHTML;
   parent.querySelector("#input-item").value = "";
 }
 
@@ -63,4 +65,19 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener('click',(e) => {
   if(e.target.className!='liDeleteBtn') return;
   e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+  listInnerHTML = document.querySelector(".list-container").innerHTML;
 })
+
+
+// document.querySelector(".list-container").addEventListener('change', () => {
+  
+//   axios.post('/save', {
+//     data:listInnerHTML
+//   })
+//   .then(function (response) {
+//     console.log('done');
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+// });

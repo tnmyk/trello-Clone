@@ -6,6 +6,7 @@ app.use(
     extended: true,
   })
 );
+app.use(bodyParser.json());
 
 // firebase
 var firebase = require("firebase/app");
@@ -56,7 +57,7 @@ app.get("/sign-up", (req, res) => {
   });
 });
 
-app.get("/boards", (req, res) => {
+app.get("/boards", (req, res,next) => {
   auth.onAuthStateChanged(function (user) {
     if (user) {
       res.render("home",{username: user.displayName});
@@ -66,6 +67,13 @@ app.get("/boards", (req, res) => {
     }
   });
 });
+
+// app.post('/save',(req,res)=>{
+//   db.collection('users').doc(auth.currentUser.uid).set({
+//     contents:req.body.data
+//   })
+// })
+
 
 app.post("/signup", (req, res) => {
   if (req.body.password != req.body.cpassword) {
@@ -131,3 +139,5 @@ app.post('/signout',(req, res)=>{
     res.redirect("/");
   })
 })
+
+
