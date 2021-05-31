@@ -29,7 +29,18 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 const auth = firebase.auth();
-auth.setPersistence(firebase.auth.Auth.Persistence.NONE); //TO BE CHANGED
+
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(() => {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode,errorMessage)
+  });
+
 app.listen(process.env.PORT || 3000);
 
 app.set("view engine", "ejs");
