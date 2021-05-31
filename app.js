@@ -30,7 +30,7 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 const auth = firebase.auth();
 
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+// firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 
 app.listen(process.env.PORT || 3000);
 
