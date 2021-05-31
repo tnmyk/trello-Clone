@@ -60,7 +60,17 @@ app.get("/sign-up", (req, res) => {
 app.get("/boards", (req, res,next) => {
   auth.onAuthStateChanged(function (user) {
     if (user) {
-      res.render("home",{username: user.displayName});
+      db.collection('users').doc(auth.currentUser.uid).get().then((boardData)=>{
+        if(boardData.exists){
+          res.render("home",{username: user.displayName,board:boardData.data().contents})
+        }
+        else{
+          res.render("home",{username: user.displayName,board:''});
+        }
+      }).catch((err)=>{
+        console.log(err)
+      })
+      
       // console.log(user.displayName)
     } else {
       res.redirect("/");
@@ -68,11 +78,11 @@ app.get("/boards", (req, res,next) => {
   });
 });
 
-// app.post('/save',(req,res)=>{
-//   db.collection('users').doc(auth.currentUser.uid).set({
-//     contents:req.body.data
-//   })
-// })
+app.post('/save',(req,res)=>{
+  db.collection('users').doc(auth.currentUser.uid).set({
+    contents:req.body.data
+  })
+})
 
 
 app.post("/signup", (req, res) => {

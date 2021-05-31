@@ -148,6 +148,20 @@ main {
   left: 1vw;
   font-weight: 500;
 }
+.saveBtn{
+  position: absolute;
+  background-color: rgb(187, 235, 91);
+  border: none;
+  padding: 0.3em 0.4em;
+  border-radius: 9px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 1.5vh;
+  right: 1vw;
+  font-weight: 500;
+}
 .list-container {
   width: 85vw;
   margin-top: 6vh;
