@@ -33,6 +33,8 @@ window.addEventListener('load',()=>{
                         displayName: iname.value,
                       })
                       .then(()=>{
+                        signerror.style.color="green"
+                      signerror.textContent= "Logging into Boards."
                           
                           db.collection("users").doc(userid).set({
                             name: iname.value,
@@ -40,7 +42,9 @@ window.addEventListener('load',()=>{
                             password: password.value,
                             contents:''
                           }).then(()=>{
-                            
+                            setTimeout(()=>{
+                              window.location.href="/boards"
+                            },2000)
                           }).catch(err=>{
                               console.log(err)
                           });
