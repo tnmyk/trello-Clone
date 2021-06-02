@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prello</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script src="signin.js" defer></script>
 </head>
 <body>
     <%-include('./partials/header') %> 
-    <form action="/signin" method="post" class="sign-in">
+    <form method="post" class="sign-in">
         <h1 class="form-heading">Sign In To Your Boards.</h1>
         <input type="text" name="email" id="email" placeholder="Email" required>
         <input type="password" name="password" id="password" class="password"  placeholder="Password" minlength="6" required>
@@ -17,7 +19,7 @@
         <a href="/sign-up" class="createorsign">Create a new account</a>
     </form>
 </body>
-<div class="signerror"><%=err%>
+<div class="signerror">
 </div>
 <script>
     document.querySelector('.profile-pic').style.display = 'none';

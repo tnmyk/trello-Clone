@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js" integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="firebase.js"defer></script> -->
 </head>
-<script defer src="home.js"></script>
 <title>Home</title>
 <body>
     <%- include('./partials/header')%>
+<script defer src="home.js"></script>
+
     <div class="profile-menu">
         <div class="profile-pic profile-menu-pic"></div>
-        <div class="logged-in-as">Logged-in as <%=username%></div>
-        <form action="/signout" method="post" class="signout-form">
+        <div class="logged-in-as">Logged-in as <span class="username"></span></div>
+        
         <button class="signOutBtn">Sign Out</button>
-        </form>
+        
     </div>
     <main>
         <div class="boards-list">
@@ -25,11 +27,47 @@
         </div>
         <div class="board">
             <button class="createCardBtn">Create Card➕</button>
+            <div class="dataStatus"></div>
             <button class="saveBtn">Save 💾</button>
-            <ul class="list-container">
-                <%-board%>         
+            <ul class="list-container"> 
+                <!-- <li class="card">
+                    <div class="options optionsnotopen"></div>
+                    <div class="options-container">
+                    <div class="options optionsopen"></div>
+                    
+                    
+                        <ul class="options-menu">
+                            <li class="delete-card">Delete Card</li>  
+                            <li class="openColors">Change Color</li>  
+                          </ul>
+                        
+                    </div>
+                    <div class="colors-container">
+                            <div class="colorsclose"></div>
+                            <div class="color" id = 'green' style="background-color: rgb(185, 255, 45);"></div>
+                            <div class="color" id='purple' style="background-color: rgb(178, 106, 245);"></div>
+                            <div class="color" id='blue' style="background-color: rgb(121, 221, 255);"></div>
+                            <div class="color" id='orange' style="background-color: rgb(255, 212, 131);"></div>
+
+                        </div>
+                <input type="text" name="cardName" placeholder="Card Name" class="card-name">
+                <ul class="incard">
+                </ul>
+                <div>
+                    <input type="text" name="cardName" placeholder="Add Item"
+                id="input-item" class="card-name"><button class="itemAddBtn"></button>
+                </div>
+                </li> -->
+                 
             </ul>  
         </div>
     </main>
 </body>
+<script defer>
+    document.querySelector('.signOutBtn').addEventListener('click',()=>{
+          auth.signOut().then(()=>{
+    window.location.href='/'
+  })
+    })
+</script>
 </html>

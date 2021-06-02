@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-Up</title>
     <link rel="stylesheet" href="style.css">
+    <script src="signup.js" defer></script>
 </head>
 <body>
     <%-include('./partials/header') %> 
-    <form action="/signup" method="post" class="sign-in sign-up">
+    <div class="sign-in sign-up">
         <h1 class="form-heading">Create An Account.</h1>
         <input type="text" name="name" id="name" placeholder="Name" required>
         <input type="text" name="email" id="email" placeholder="Email" required>
@@ -17,9 +18,9 @@
         <input type="password" name="cpassword" id="cpassword" class="password"  placeholder="Confirm Password" minlength="6" required>
         <button id='signBtn'>Sign up</button>
         <a href="/" class="createorsign">Sign into existing account.</a>
-    </form>
+    </div>
 </body>
-<div class="signerror"> <%=err %> 
+<div class="signerror">
 </div>
 <script>
     document.querySelector('.profile-pic').style.display = 'none';

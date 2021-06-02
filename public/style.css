@@ -102,9 +102,11 @@ nav a {
   font-size: 0.9em;
   text-align: center;
 }
+.username{
+  text-transform: capitalize;
+}
 .signout-form{
   width:100%;
-  margin-top: 6vh;
   position: absolute;
   bottom: 5vh;
   /* background-color: red; */
@@ -118,8 +120,11 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  
+  margin: 0 auto; 
+  /* margin-top: 6vh; */
+  position: absolute;
+  bottom: 5vh;
+
 }
 main {
   display: flex;
@@ -147,6 +152,15 @@ main {
   top: 1.5vh;
   left: 1vw;
   font-weight: 500;
+}
+.dataStatus{
+  position: absolute;
+  top: 2.8vh;
+  right: 9vw;
+  font-weight: 500;
+  color:red;
+  font-size: 0.9em;
+  letter-spacing: 0;
 }
 .saveBtn{
   position: absolute;
@@ -176,6 +190,9 @@ main {
   min-width: 200px;
   width:200px;
   background-color: rgb(185, 255, 45);
+  
+  
+
   margin: 0 1vw;
   list-style: none;
   border-radius:10px;
@@ -184,19 +201,105 @@ main {
   align-items: center;
   padding:2vh 0vw;
   padding-bottom: 0;
+  position: relative;
+  /* overflow-y:hidden ; */
+}
+.options{
+  background-size: cover;
+  position: absolute;
+  right: 0.5vw;
+  top: 2vh;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+  /* z-index: 2; */
+}
+.optionsnotopen{
+  background-image: url('/images/options.png');
+}
+.optionsopen{
+  background-image: url('/images/cross.png');
+}
+.options-container{
+  position: absolute;
+  top: -100vh;
+  border-radius: 10px;
+  height: 95%;
+  min-width: 200px;
+  width:200px;
+  height: 100%;
+  background-color: rgb(200, 255, 195);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s;
+}
+.openColors{
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1em;
+
+}
+.colors-container{
+  position: absolute;
+  bottom: -100vh;
+  left: 0;
+  border-radius: 10px;
+  height: 95%;
+  min-width: 200px;
+  width:200px;
+  height: 100%;
+  background-color: rgb(131, 255, 119);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding:6vh 0;
+  transition: transform 0.6s;
+  z-index: 2;
 }
 
+.colorsclose{
+  background-size: cover;
+  position: absolute;
+  right: 0.5vw;
+  top: 2vh;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+  background-image: url('/images/cross.png');
+}
+
+.color{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border:1px solid black;
+  z-index: 3;
+  cursor:pointer;
+}
+
+
+.options-menu{
+  list-style: none;
+}
+.delete-card{
+  color:red;
+  font-weight:600;
+  cursor: pointer;
+  font-size: 1.1em;
+}
 .card-name {
   border: none;
   background: none;
-  border-bottom: 1px solid white;
-  width:80%;
+  border-bottom: 1px solid rgb(180, 180, 180);
+  width:75%;
   color: white;
   font-size:1.2em;
   font-weight: 600;
   color: black;
   text-transform: capitalize;
-
 }
 #input-item{
   margin-top:1.5vh;
@@ -213,7 +316,7 @@ main {
   height:20px;
   border-radius: 5px;
   border: none;
-  background-color:rgb(134, 223, 0);
+  background-color:rgb(121, 202, 0);
   background-image:url('/images/check.png');
   background-size: 80%;
   background-position: center;
