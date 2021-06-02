@@ -202,7 +202,7 @@ main {
   padding:2vh 0vw;
   padding-bottom: 0;
   position: relative;
-  /* overflow-y:hidden ; */
+  overflow-y:hidden ;
 }
 .options{
   background-size: cover;
@@ -239,8 +239,12 @@ main {
   cursor: pointer;
   font-weight: 600;
   font-size: 1.1em;
-
 }
+
+.purple{
+  background-color: rgb(197, 134, 255);
+}
+
 .colors-container{
   position: absolute;
   bottom: -100vh;

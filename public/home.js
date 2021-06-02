@@ -62,10 +62,29 @@ var addBtns = document.querySelectorAll(".itemAddBtn");
 
 function itemAdder(parent){
   if (parent.querySelector("#input-item").value.trim() == "") return;
-  parent.querySelector(".incard").innerHTML += `<li>${
+  
+  const li = document.createElement('li')
+  li.innerHTML = `${
     parent.querySelector("#input-item").value
-  } <button class='liDeleteBtn'></button></li>`;
+  } <button class='liDeleteBtn'></button>`
+  var color =parent.style.backgroundColor;
+  if(color=='rgb(178, 106, 245)'){ //purple
+    li.style.backgroundColor = "rgb(197, 134, 255)"
+  }
+  else if(color == "rgb(185, 255, 45)"){ //green
+    li.style.backgroundColor = "rgb(213, 255, 130)"
+  }
+  else if(color == "rgb(121, 221, 255)"){ //blue
+    li.style.backgroundColor = "rgb(172, 234, 255)"
+  }
+  else if(color == "rgb(255, 212, 131)" ){ //orange
+    li.style.backgroundColor = "rgb(255, 227, 176)"
+
+  }
+  
+  parent.querySelector(".incard").appendChild(li)
   parent.querySelector("#input-item").value = "";
+
 }
 
 document.addEventListener("click", (e) => {
@@ -146,6 +165,7 @@ auth.onAuthStateChanged(function (user) {
     }
   },2000)
 
+  
 
   document.addEventListener('click',(e)=>{
     if(e.target.className=="options optionsnotopen"){
@@ -173,8 +193,12 @@ auth.onAuthStateChanged(function (user) {
       optionsContainer.style.transform = "translateY(-100vh)"
     }
     else if(e.target.id=='green'){
-      console.log(document.querySelector('#green').style.backgroundColor)
       e.target.parentElement.parentElement.style.backgroundColor = document.querySelector('#green').style.backgroundColor
+      e.target.parentElement.parentElement.querySelectorAll('.incard li').forEach((x)=>{
+        x.style.backgroundColor = "rgb(213, 255, 130)" ;
+      })
+      
+      
       const colorsContainer =e.target.parentElement
       colorsContainer.style.transform = "translateY(100vh)"
       const optionsContainer =e.target.parentElement.parentElement.querySelector('.options-container')
@@ -182,6 +206,9 @@ auth.onAuthStateChanged(function (user) {
     }
     else if(e.target.id=='purple'){
       e.target.parentElement.parentElement.style.backgroundColor = document.querySelector('#purple').style.backgroundColor
+      e.target.parentElement.parentElement.querySelectorAll('.incard li').forEach((x)=>{
+        x.style.backgroundColor = "rgb(197, 134, 255)" ;
+      })
       const colorsContainer =e.target.parentElement
       colorsContainer.style.transform = "translateY(100vh)"
       const optionsContainer =e.target.parentElement.parentElement.querySelector('.options-container')
@@ -189,6 +216,9 @@ auth.onAuthStateChanged(function (user) {
     }
     else if(e.target.id=='blue'){
       e.target.parentElement.parentElement.style.backgroundColor = document.querySelector('#blue').style.backgroundColor
+      e.target.parentElement.parentElement.querySelectorAll('.incard li').forEach((x)=>{
+        x.style.backgroundColor = "rgb(172, 234, 255)" ;
+      })
       const colorsContainer =e.target.parentElement
       colorsContainer.style.transform = "translateY(100vh)"
       const optionsContainer =e.target.parentElement.parentElement.querySelector('.options-container')
@@ -196,6 +226,9 @@ auth.onAuthStateChanged(function (user) {
     }
     else if(e.target.id=='orange'){
       e.target.parentElement.parentElement.style.backgroundColor = document.querySelector('#orange').style.backgroundColor
+      e.target.parentElement.parentElement.querySelectorAll('.incard li').forEach((x)=>{
+        x.style.backgroundColor = "rgb(255, 227, 176)" ;
+      })
       const colorsContainer =e.target.parentElement
       colorsContainer.style.transform = "translateY(100vh)"
       const optionsContainer =e.target.parentElement.parentElement.querySelector('.options-container')
